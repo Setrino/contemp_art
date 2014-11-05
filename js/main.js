@@ -2,6 +2,8 @@ $(document).ready(function(){
 
     $('.inner_block').hide();
     $(".inner_block").eq(0).show();
+    $('body').animate({backgroundColor : '#9f24db'}, 2000);
+    $('#center_block').animate({width: '60%'}, 2000, function(){$('body').css('overflow', 'auto');});
 
     var scroll = true;
     var prevScroll = 0;
@@ -21,8 +23,55 @@ $(document).ready(function(){
         }, 500);
     });
 
-    $(window).mousedown(function(){
-        console.log("NA");
+    $(document).keydown(function(e) {
+        switch(e.keyCode){
+            case 38:
+                if(currentLvl > 0 && scroll){
+                    prevLvl = currentLvl;
+                    currentLvl--;
+                    scrollNav(-$(".left_nav").height());
+                }
+                break;
+            case 40:
+                if(currentLvl < 3 && scroll){
+                    prevLvl = currentLvl;
+                    currentLvl++;
+                    scrollNav($(".left_nav").height());
+                }
+                break;
+        }
+    });
+
+    $('.gallery').click(function(){
+        $('nav ul li a').removeClass('active');
+        $(this).addClass('active');
+        prevLvl = currentLvl;
+        currentLvl = 2;
+        scrollNav((currentLvl - prevLvl) * $(".left_nav").height());
+    });
+
+    $('.info').click(function(){
+        $('nav ul li a').removeClass('active');
+        $(this).addClass('active');
+        prevLvl = currentLvl;
+        currentLvl = 1;
+        scrollNav((currentLvl - prevLvl) * $(".left_nav").height());
+    });
+
+    $('.welcome').click(function(){
+        $('nav ul li a').removeClass('active');
+        $(this).addClass('active');
+        prevLvl = currentLvl;
+        currentLvl = 0;
+        scrollNav((currentLvl - prevLvl) * $(".left_nav").height());
+    });
+
+    $('.credits').click(function(){
+        $('nav ul li a').removeClass('active');
+        $(this).addClass('active');
+        prevLvl = currentLvl;
+        currentLvl = 3;
+        scrollNav((currentLvl - prevLvl) * $(".left_nav").height());
     });
 
     $(window).scroll(function(event) {
@@ -52,50 +101,62 @@ $(document).ready(function(){
     function scrollNav(scrollDir){
         scroll = false;
         pageChange();
+        navChange();
         $(".left_nav, .right_nav").animate({
                 top : parseFloat($(".left_nav").css('top')) + scrollDir
             }, function(){  setTimeout(function(){scroll = true;}, 500); });
         }
 
+    function navChange(){
+        $('nav ul li a').removeClass('active');
+        $('nav ul li a:eq(' + currentLvl + ')').addClass('active');
+    }
+
     function pageChange(){
-        console.log("LVL " + currentLvl);
 
         switch(currentLvl){
             case 0:
+                $('body').animate({backgroundColor : '#9f24db'});
                 $('#center_block').animate({width: '60%'});
-                $('.top_block').animate({'padding-top': '50px', 'padding-bottom': '35px'});
+                $('.top_block').animate({'padding-top': '50px', 'padding-bottom': '35px', width: '60%'});
                 $('.bottom_block').animate({width: '70%', margin: '0 auto'});
                 $('.inner_block').animate({position: 'relative', width: '72%', margin: '0 auto', float: 'left'});
+                $('.right_image').animate({left: '0px'});
+                $('.left_image').animate({left: '0px', 'z-index': 6});
                 $('.inner_block').hide();
                 $(".inner_block").eq(0).show();
                 break;
             case 1:
+                $('body').animate({backgroundColor : '#00fd63'});
                 $('#center_block').animate({width: '65%'});
                 $('.top_block').animate({'padding-top': '25px', 'padding-bottom': '35px'});
                 $('.bottom_block').animate({width: '70%', margin: '0 auto', 'margin-top': '25px'});
                 $('.inner_block').animate({width: '72%', 'padding-top': '0px'});
+                $('.right_image').animate({left: '0px'});
+                $('.left_image').animate({left: '0px', 'z-index': 6});
                 $('.inner_block').hide();
                 $(".inner_block").eq(1).show();
                 break;
             case 2:
-                $('#center_block').animate({width: '90%', margin: '0 auto', height: 'auto'});
+                $('body').animate({backgroundColor : '#ffff01'});
+                $('#center_block').animate({width: '90%', margin: '0 auto', height: 'auto', overflow: 'auto'});
                 $('.top_block').animate({'padding-top': '25px', width: '55%', margin: '0 auto', 'padding-bottom': '25px'});
                 $('.inner_block').animate({position: 'relative', width: '81%', float: 'left', 'padding-top': '25px'});
-                $('.bottom_block').animate({width: '70%', 'margin-top': '70px'});
+                $('.bottom_block').animate({width: '70%', 'margin-top': '70px', top: 0, 'padding-top': 0});
+                $('.right_image').animate({left: '0px'});
+                $('.left_image').animate({left: '0px', 'z-index': 6});
                 $('.inner_block').hide();
                 $(".inner_block").eq(2).show();
                 break;
             case 3:
-                console.log(($('#center_block').width()
-                    * 0.17 / 2));
+                $('body').animate({backgroundColor : '#c9158e'});
                 $('#center_block').animate({width: '100%', height: '725px', margin: '0 auto', position: 'relative',
                     overflow: 'hidden'});
                 $('.top_block').animate({'padding-top': '0', 'padding-bottom': '25px', width: '75%', margin: '0 auto'});
-                $('.inner_block').animate({position: 'relative', width: '76%', margin: '0 auto'});
-                //$('.bottom_block').css('position', 'fixed');
-                $('.bottom_block').animate({width: '83%', margin: '0 auto', 'padding-top': '25px', top: 138});
-                 $('.right_image').animate({left: '44px'});
-                $('.left_image').animate({position: 'absolute', left: '-44px', 'z-index': 6});
+                $('.inner_block').animate({position: 'relative', width: '76%', margin: '0 auto', 'padding-top': '25px'});
+                $('.bottom_block').animate({width: '83%', margin: '0 auto', 'padding-top': '25px', top: 5});
+                $('.right_image').animate({left: '44px'});
+                $('.left_image').animate({left: '-44px', 'z-index': 6});
                 $('.inner_block').hide();
                 $(".inner_block").eq(3).show();
                 break;
