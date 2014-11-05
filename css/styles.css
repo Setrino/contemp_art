@@ -1,0 +1,260 @@
+html, *{
+    background-color: #00082b;
+    color: #FFFFFF;
+    font-family: 'PT Serif', serif;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.wrapper{
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.top_level{
+    width: 100%;
+}
+
+.top_level:after{
+    clear: both;
+}
+
+h1{
+    float: left;
+    width: 220px;
+    position: relative;
+    z-index: 5;
+}
+
+nav{
+    position: relative;
+    z-index: 5;
+    float: right;
+    top: 30px;
+    font-size: 18px;
+}
+
+nav li{
+    display: inline-block;
+    text-decoration: none;
+}
+
+nav a{
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 1.5em 0 1.5em;
+}
+
+nav a:hover{
+    text-decoration: underline;
+}
+
+nav a.active{
+    text-decoration: underline;
+}
+
+#map3d{
+    margin: 0 auto;
+    position: relative;
+}
+
+.active{
+    pointer-events: none;
+    cursor: default;
+}
+
+#amazingslider-1{
+    top: 140px;
+}
+
+.top_text, .bottom_text{
+    font-family: 'PT Serif', serif;
+    text-decoration:none;
+    color: #FFFFFF;
+    text-align: left;
+    font-size: 13px;
+}
+
+.control{
+    width: 100%;
+    position: relative;
+    top: 410px;
+    right: 90px;
+}
+
+.left_slider{
+    position: relative;
+    float: left;
+    right: 700px;
+}
+
+.right_slider{
+    position: relative;
+    float: right;
+}
+
+.slider_block{
+    position: relative;
+    top: 80px;
+}
+
+.slider{
+    float: left;
+    height: 550px;
+}
+
+.jay, .parsi, .dylan, .pernille, .hunters, .monty, .pernille, .play, .sound,
+#playback0, #playback1, #playback2, #playback3, #playback4, #playback5, .left_slider, .right_slider, .logo{
+    cursor: pointer;
+}
+
+.play, #volume{
+    display: inline-block;
+}
+
+.blanky{
+    position: relative;
+    z-index: 3;
+}
+
+.play{
+    position: relative;
+    right: 5px;
+    top: 5px;
+    z-index: 5;
+}
+
+.music{
+    position: relative;
+    top: 175px;
+    margin: 0 auto;
+    height: 55px;
+    width: 360px;
+    border: 3px solid #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.music img{
+    float: left;
+    position: relative;
+    border-right: 3px solid #ffffff;
+}
+
+img.str{
+    position: relative;
+    left: 10px;
+    top: 10px;
+    border: 0;
+}
+
+.music span{
+    position: relative;
+    top: 5px;
+    font-size: 10px;
+}
+
+#player {
+    height:100px;
+    width: 255px;
+    position: relative;
+    margin: 0 auto;
+    top: 160px;
+    left: 10px;
+}
+
+.sound{
+    position: relative;
+    bottom: 72px;
+}
+
+#playback0, #playback1, #playback2, #playback3, #playback4, #playback5{
+    position: relative;
+    margin: 0 auto;
+    height:11px;
+    width: 226px;
+    top: 16px;
+    left: 28px;
+    background: url('../images/playback.png') no-repeat center bottom;
+}
+
+#playback0 .ui-slider-range-min, #playback1 .ui-slider-range-min, #playback2 .ui-slider-range-min,
+    #playback3 .ui-slider-range-min, #playback4 .ui-slider-range-min, #playback5 .ui-slider-range-min{
+    height:11px;
+    width: 226px;
+    background: url('../images/playback_full.png') no-repeat center bottom;
+}
+
+#volume {
+    position: relative;
+    z-index: 5;
+    margin: 0 auto;
+    height:72px;
+    width: 10px;
+    right: 22px;
+    background: url('../images/volume-full1.png') no-repeat center bottom;
+}
+
+.section{
+    text-align:center;
+}
+
+.intro p{
+    color: #fff;
+    position: relative;
+    top: 50px;
+}
+
+.header_fixed{
+    position:fixed;
+    display:block;
+    width: 1100px;
+    z-index:9;
+    padding: 8px 0 0 0;
+}
+
+.slide_text{
+    width: 750px;
+    margin: 0 auto;
+    position: relative;
+    bottom: 20px;
+}
+
+/* Overlay copyright box */
+
+h2{
+    font-size: 28px;
+}
+
+.bgCover{
+    background-color: #000000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.overlayBox{
+    background: #00082b;
+    color: #000;
+    font-family: Arial;
+    font-size: 15px;
+    position: absolute;
+    display: none;
+    width: 700px;
+    padding: 20px;
+    z-index: 101;
+    line-height:120%;
+}
+
+.closeOverlay{
+    position: relative;
+    width: 16px;
+    height: 16px;
+    left: 47%;
+    top: 5px;
+
+}
+
+/* END Overlay copyright box */
