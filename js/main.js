@@ -118,7 +118,7 @@ $(document).ready(function(){
             case 0:
                 $('body').animate({backgroundColor : '#9f24db'});
                 $('#center_block').animate({width: '60%'});
-                $('.top_block').animate({'padding-top': '50px', 'padding-bottom': '35px', width: '60%'});
+                $('.top_block').animate({'padding-top': '50px', 'padding-bottom': '25px', width: '60%', top: '0px'});
                 $('.bottom_block').animate({width: '70%', margin: '0 auto'});
                 $('.inner_block').animate({position: 'relative', width: '72%', margin: '0 auto', float: 'left'});
                 $('.right_image').animate({left: '0px'});
@@ -129,7 +129,7 @@ $(document).ready(function(){
             case 1:
                 $('body').animate({backgroundColor : '#00fd63'});
                 $('#center_block').animate({width: '65%'});
-                $('.top_block').animate({'padding-top': '25px', 'padding-bottom': '35px'});
+                $('.top_block').animate({'padding-top': '35px', 'padding-bottom': '25px', top: '0px'});
                 $('.bottom_block').animate({width: '70%', margin: '0 auto', 'margin-top': '25px'});
                 $('.inner_block').animate({width: '72%', 'padding-top': '0px'});
                 $('.right_image').animate({left: '0px'});
@@ -140,21 +140,24 @@ $(document).ready(function(){
             case 2:
                 $('body').animate({backgroundColor : '#ffff01'});
                 $('#center_block').animate({width: '90%', margin: '0 auto', height: 'auto', overflow: 'auto'});
-                $('.top_block').animate({'padding-top': '25px', width: '55%', margin: '0 auto', 'padding-bottom': '25px'});
+                $('.top_block').animate({'padding-top': '25px', width: '55%', margin: '0 auto', 'padding-bottom': '25px', top: '0px'});
                 $('.inner_block').animate({position: 'relative', width: '81%', float: 'left', 'padding-top': '25px'});
-                $('.bottom_block').animate({width: '70%', 'margin-top': '70px', top: 0, 'padding-top': 0});
+                $('.bottom_block').css('margin-top', 70);
+                $('.bottom_block').animate({width: '70%', top: 0, 'padding-top': 0});
                 $('.right_image').animate({left: '0px'});
                 $('.left_image').animate({left: '0px', 'z-index': 6});
                 $('.inner_block').hide();
                 $(".inner_block").eq(2).show();
                 break;
             case 3:
+                var botTop = ($(window).height() > 800) ? 152 : -3;
                 $('body').animate({backgroundColor : '#c9158e'});
-                $('#center_block').animate({width: '100%', height: '725px', margin: '0 auto', position: 'relative',
+                $('#center_block').animate({width: '100%', height: $(document).height(), margin: '0 auto', position: 'relative',
                     overflow: 'hidden'});
-                $('.top_block').animate({'padding-top': '0', 'padding-bottom': '25px', width: '75%', margin: '0 auto'});
-                $('.inner_block').animate({position: 'relative', width: '76%', margin: '0 auto', 'padding-top': '25px'});
-                $('.bottom_block').animate({width: '83%', margin: '0 auto', 'padding-top': '25px', top: 5});
+                $('.top_block').animate({'padding-top': '0', 'padding-bottom': '25px', width: '75%', margin: '0 auto', top: '-50px'});
+                $('.inner_block').animate({position: 'relative', width: '83%', margin: '0 auto', 'padding-top': '25px'});
+                $('.bottom_block').css('margin-top', 0);
+                $('.bottom_block').animate({width: '83%', 'padding-top': '25px', top : botTop});
                 $('.right_image').animate({left: '44px'});
                 $('.left_image').animate({left: '-44px', 'z-index': 6});
                 $('.inner_block').hide();
